@@ -33,7 +33,7 @@
     <input type="submit" class="btn btn-dark"  value="Consultar">
 </form>
 <br>
-<style>
+<style> 
     table{
         text-align: center;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

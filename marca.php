@@ -60,8 +60,10 @@ if ($acao == 'editar'){
     <h3>CPF:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="cpf" id="cpf" value="<?php if ($acao == "editar") echo $dados['cpf']; ?>"  placeholder="Inserir CPF"><br>
     <h3>Idade:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="idade" id="idade" value="<?php if ($acao == "editar") echo $dados['idade']; ?>"  placeholder="Inserir idade"><br>
     <h3>Tempo:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="tempo" id="tempo" value="<?php if ($acao == "editar") echo $dados['tempo']; ?>" placeholder="Inserir tempo de jogo"><br>
+
     
-    <input type="submit" class="btn btn-dark" name="acao" id="acao"  value="salvar">
+
+    <input type="submit" class="btn btn-dark" name="acao" id="acao"  value="salvar"> 
 </form><br>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
