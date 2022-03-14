@@ -26,9 +26,9 @@
 <h2 class="text-dark">Computador</h2>
 </br>
 <form method="post">
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>ID</h3><br>  
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Tipo computador</h3><br>
-    <input class="form-control bg-dark text-white" type="text" name="procurar" id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" computador_id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>ID computador</h3><br>  
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" computador_id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Tipo computador</h3><br>
+    <input class="form-control bg-dark text-white" type="text" name="procurar" computador_id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
     <br>
     <input type="submit" class="btn btn-dark"  value="Consultar">
 </form>
@@ -36,7 +36,7 @@
 <style> 
     table{
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Luccomputador_ida Sans', 'Luccomputador_ida Sans Regular', 'Luccomputador_ida Grande', 'Luccomputador_ida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     body{
         background-color: #808080;
@@ -45,11 +45,11 @@
         background-color: black;
     }
     h3, h2{
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Luccomputador_ida Sans', 'Luccomputador_ida Sans Regular', 'Luccomputador_ida Grande', 'Luccomputador_ida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>
 <table class="table table-dark table-striped">
-    <tr><th>ID</th>
+    <tr><th>ID computador</th>
         <th>Tipo computador</th> 
         <th>Atualizar</th>
         <th>Excluir</th> 
@@ -59,7 +59,7 @@
 error_reporting(0);
     $sql = "";
     if ($tipo == 1){
-        $sql = "SELECT * FROM computador WHERE id = $procurar ORDER BY id";
+        $sql = "SELECT * FROM computador WHERE computador_id = $procurar ORDER BY computador_id";
     }else{    
         $sql = "SELECT * FROM computador WHERE tipocomp LIKE '$procurar%' ORDER BY tipocomp";
     }
@@ -70,10 +70,10 @@ $consulta = $pdo->query($sql);
 while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
     ?>
 
-    <tr><td><?php echo $linha['id'];?></td>
+    <tr><td><?php echo $linha['computador_id'];?></td>
     <td><?php echo $linha['tipocomp'];?></td>
-    <td><a href='marca1.php?acao1=editar&id=<?php echo $linha['id'];?>'><center><img class="icon" src="img/editar.png" width="25" height="25" alt=""></center></a></td>
-    <td><a href="javascript:excluirRegistro('acao1.php?acao1=excluir&id=<?php echo $linha['id'];?>')"><center><img class="icon" src="img/deletar.png" width="25" height="25" alt=""></center></a></td>
+    <td><a href='marca1.php?acao1=editar&computador_id=<?php echo $linha['computador_id'];?>'><center><img class="icon" src="img/editar.png" wcomputador_idth="25" height="25" alt=""></center></a></td>
+    <td><a href="javascript:excluirRegistro('acao1.php?acao1=excluir&computador_id=<?php echo $linha['computador_id'];?>')"><center><img class="icon" src="img/deletar.png" wcomputador_idth="25" height="25" alt=""></center></a></td>
 
 </tr>
 

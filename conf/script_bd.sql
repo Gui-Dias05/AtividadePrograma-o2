@@ -1,12 +1,12 @@
 CREATE TABLE `ativprog3`.`usuario` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `usuario_id` INT NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `idade` INT NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE `ativprog3`.`computador` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `computador_id` INT NOT NULL AUTO_INCREMENT,
   `tipocomp` VARCHAR(45) NULL,
   `valorhora` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));

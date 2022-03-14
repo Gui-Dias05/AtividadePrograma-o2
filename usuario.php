@@ -26,9 +26,9 @@
 <h2 class="text-dark">Usuário</h2>
 </br>
 <form method="post">
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>ID</h3><br>  
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Nome</h3><br>
-    <input class="form-control bg-dark text-white" type="text" name="procurar" id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" usuario_id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>Id usuário</h3><br>  
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" usuario_id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Nome</h3><br>
+    <input class="form-control bg-dark text-white" type="text" name="procurar" usuario_id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
     <br>
     <input type="submit" class="btn btn-dark"  value="Consultar">
 </form>
@@ -36,7 +36,7 @@
 <style>
     table{
         text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Lucusuario_ida Sans', 'Lucusuario_ida Sans Regular', 'Lucusuario_ida Grande', 'Lucusuario_ida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     body{
         background-color: #808080;
@@ -45,14 +45,14 @@
         background-color: black;
     }
     h3, h2{
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Lucusuario_ida Sans', 'Lucusuario_ida Sans Regular', 'Lucusuario_ida Grande', 'Lucusuario_ida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>
 <table class="table table-dark table-striped">
-       <tr><th>ID</th>
+       <tr><th>ID usuário</th>
         <th>Name</th> 
         <th>CPF</th> 
-        <th>Idade</th>
+        <th>usuario_idade</th>
         <th>Tempo em horas jogado</th>
         <th>Valor final</th>
         <th>Atualizar</th>  
@@ -64,7 +64,7 @@
 error_reporting(0);
     $sql = "";
     if ($tipo == 1){
-        $sql = "SELECT * FROM usuario WHERE id = $procurar ORDER BY id";
+        $sql = "SELECT * FROM usuario WHERE usuario_id = $procurar ORDER BY usuario_id";
     }else{    
         $sql = "SELECT * FROM usuario WHERE name LIKE '$procurar%' ORDER BY name";
     }
@@ -77,14 +77,14 @@ while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 
     ?>
 
-    <tr> <td ><?php echo $linha['id'];?></td>
+    <tr> <td ><?php echo $linha['usuario_id'];?></td>
     <td ><?php echo $linha['name'];?></td>
     <td ><?php echo $linha['cpf'];?></td>
     <td ><?php echo $linha['idade'];?></td>
     <td ><?php echo $linha['tempo'];?></td>
     <td  style="color: <?php if($valorfim>150){echo "#FF6961";}else{echo "#00BFFF";}?>;"><?php echo $valorfim;?></td><?php ?>
-    <td ><a href='marca.php?acao=editar&id=<?php echo $linha['id'];?>'><center><img class="icon" src="img/editar.png" width="25" height="25" alt=""></center></a></td>
-    <td ><a href="javascript:excluirRegistro('acao.php?acao=excluir&id=<?php echo $linha['id'];?>')"><center><img class="icon" src="img/deletar.png" width="25" height="25" alt=""></center></a></td>
+    <td ><a href='marca.php?acao=editar&usuario_id=<?php echo $linha['usuario_id'];?>'><center><img class="icon" src="img/editar.png" width="25" height="25" alt=""></center></a></td>
+    <td ><a href="javascript:excluirRegistro('acao.php?acao=excluir&usuario_id=<?php echo $linha['usuario_id'];?>')"><center><img class="icon" src="img/deletar.png" wdth="25" height="25" alt=""></center></a></td>
 </tr>
 <?php } ?>
 </table>

@@ -16,6 +16,9 @@
           <a class="nav-link" href="jogos.php">Jogos</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="jogocomp.php">Jogos presente em qual computador</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="marca.php">Cadastrar usuário</a>
         </li>
         <li class="nav-item">
@@ -23,6 +26,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="marca2.php">Cadastrar jogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="marca3.php">Cadastro de jogos presentes no computador</a>
         </li>
       </ul>
     </div>

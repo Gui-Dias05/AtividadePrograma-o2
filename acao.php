@@ -6,89 +6,89 @@
     // Se foi enviado via GET para acao entra aqui
     $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     if ($acao == "excluir"){
-        $id = isset($_GET['id']) ? $_GET['id'] : 0;
-        excluir($id);
+        $usuario_id = isset($_GET['usuario_id']) ? $_GET['usuario_id'] : 0;
+        excluir($usuario_id);
     }
 
     // Se foi enviado via POST para acao entra aqui
     $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     if ($acao == "salvar"){
-        $id = isset($_POST['id']) ? $_POST['id'] : "";
-        if ($id == 0)
-            inserir($id);
+        $usuario_id = isset($_POST['usuario_id']) ? $_POST['usuario_id'] : "";
+        if ($usuario_id == 0)
+            inserir($usuario_id);
         else
-            editar($id);
+            editar($usuario_id);
     }
 
     // Métodos para cada operação
-    function inserir($id){
+    function inserir($usuario_id){
         $dados = dadosForm();
         //var_dump($dados)
         
         $pdo = Conexao::getInstance();
         $name = isset($_POST['name']) ? $_POST['name'] : "";
         $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : "";
-        $idade = isset($_POST['idade']) ? $_POST['idade'] : "";
+        $usuario_idade = isset($_POST['usuario_idade']) ? $_POST['usuario_idade'] : "";
         $tempo = isset($_POST['tempo']) ? $_POST['tempo'] : "";
-        $stmt = $pdo->prepare('INSERT INTO usuario (name, cpf, idade, tempo) VALUES(:name, :cpf, :idade, :tempo)');
+        $stmt = $pdo->prepare('INSERT INTO usuario (name, cpf, usuario_idade, tempo) VALUES(:name, :cpf, :usuario_idade, :tempo)');
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
-        $stmt->bindParam(':idade', $idade, PDO::PARAM_STR);
+        $stmt->bindParam(':usuario_idade', $usuario_idade, PDO::PARAM_STR);
         $stmt->bindParam(':tempo', $tempo, PDO::PARAM_STR);
         $name = $dados['name'];
         $cpf = $dados['cpf'];
-        $idade = $dados['idade'];
+        $usuario_idade = $dados['usuario_idade'];
         $tempo = $dados['tempo'];
         $stmt->execute();
         header("location:usuario.php");
         
     }
 
-    function editar($id){
+    function editar($usuario_id){
         $name = isset($_POST['name']) ? $_POST['name'] : "";
         $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : "";
-        $idade = isset($_POST['idade']) ? $_POST['idade'] : "";
+        $usuario_idade = isset($_POST['usuario_idade']) ? $_POST['usuario_idade'] : "";
         $tempo = isset($_POST['tempo']) ? $_POST['tempo'] : "";
         $dados = dadosForm();
         $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('UPDATE `ativprog3`.`usuario` SET `name` = :name, `cpf` = :cpf, `idade` = :idade, `tempo` = :tempo WHERE (`id` = :id);');
+        $stmt = $pdo->prepare('UPDATE `ativprog3`.`usuario` SET `name` = :name, `cpf` = :cpf, `usuario_idade` = :usuario_idade, `tempo` = :tempo WHERE (`usuario_id` = :usuario_id);');
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
-        $stmt->bindParam(':idade', $idade, PDO::PARAM_STR);
+        $stmt->bindParam(':usuario_idade', $usuario_idade, PDO::PARAM_STR);
         $stmt->bindParam(':tempo', $tempo, PDO::PARAM_STR);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
         $name = $dados['name'];
         $cpf = $dados['cpf'];
-        $idade = $dados['idade'];
+        $usuario_idade = $dados['usuario_idade'];
         $tempo = $dados['tempo'];
-        $id = $dados['id'];
+        $usuario_id = $dados['usuario_id'];
         $stmt->execute();
         header("location:usuario.php");
     }
 
-    function excluir($id){
+    function excluir($usuario_id){
         $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('DELETE from usuario WHERE id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $idD = $id;
+        $stmt = $pdo->prepare('DELETE from usuario WHERE usuario_id = :usuario_id');
+        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        $usuario_idD = $usuario_id;
         $stmt->execute();
         header("location:usuario.php");
         
-        //echo "Excluir".$id;
+        //echo "Excluir".$usuario_id;
 
     }
 
 
     // Busca um item pelo código no BD
-    function buscarDados($id){
+    function buscarDados($usuario_id){
         $pdo = Conexao::getInstance();
-        $consulta = $pdo->query("SELECT * FROM usuario WHERE id = $id");
-        $dados = array();
+        $consulta = $pdo->query("SELECT * FROM usuario WHERE usuario_id = $usuario_id");
+        $dados = array(); 
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-            $dados['id'] = $linha['id'];
+            $dados['usuario_id'] = $linha['usuario_id'];
             $dados['name'] = $linha['name'];
             $dados['cpf'] = $linha['cpf'];
-            $dados['idade'] = $linha['idade'];
+            $dados['usuario_idade'] = $linha['usuario_idade'];
             $dados['tempo'] = $linha['tempo'];
         }
         //var_dump($dados);
@@ -98,10 +98,10 @@
     // Busca as informações digitadas no form
     function dadosForm(){
         $dados = array();
-        $dados['id'] = $_POST['id'];
+        $dados['usuario_id'] = $_POST['usuario_id'];
         $dados['name'] = $_POST['name'];
         $dados['cpf'] = $_POST['cpf'];
-        $dados['idade'] = $_POST['idade'];
+        $dados['usuario_idade'] = $_POST['usuario_idade'];
         $dados['tempo'] = $_POST['tempo'];
         return $dados;
     }
