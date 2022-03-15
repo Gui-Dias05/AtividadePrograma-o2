@@ -18,21 +18,7 @@
                 location.href = url;
         }
     </script>
-</head>
-<body>
-<?php include "menu1.php"; ?>
-<br>
-<h2 class="text-dark">Jogos</h2>
-</br>
-<form method="post">
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>ID</h3><br>  
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Nome</h3><br>
-    <input class="form-control bg-dark text-white" type="text" name="procurar" id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
-    <br>
-    <input type="submit" class="btn btn-dark"  value="Consultar">
-</form>
-<br>
-<style>
+    <style>
     table{
         text-align: center;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -47,6 +33,21 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>
+</head>
+<body>
+<?php include "menu1.php"; ?>
+<br>
+<h2 class="text-dark">Jogos</h2>
+</br>
+<form method="post">
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>ID</h3><br>  
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Nome</h3><br>
+    <input class="form-control bg-dark text-white" type="text" name="procurar" id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
+    <br>
+    <input type="submit" class="btn btn-dark"  value="Consultar">
+</form>
+<br>
+
 <table class="table table-dark table-striped">
     <tr><th>ID</th>
         <th>Name</th> 

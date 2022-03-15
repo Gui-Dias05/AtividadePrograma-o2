@@ -26,35 +26,33 @@
         //var_dump($dados)
         
         $pdo = Conexao::getInstance();
-        $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+        $name = isset($_POST['name']) ? $_POST['name'] : "";
         $faixaetaria = isset($_POST['faixaetaria']) ? $_POST['faixaetaria'] : "";
-        $computador_computador_id = isset($_POST['computador_computador_id']) ? $_POST['computador_computador_id'] : "";
-        $stmt = $pdo->prepare('INSERT INTO jogocomp (nome, faixaetaria, computador_computador_id) VALUES(:nome, :faixaetaria, :computador_computador_id)');
-        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $computador_id = isset($_POST['computador_id']) ? $_POST['computador_id'] : "";
+        $stmt = $pdo->prepare('INSERT INTO jogocomp (name, faixaetaria, computador_id) VALUES(:name, :faixaetaria, :computador_id)');
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':faixaetaria', $faixaetaria, PDO::PARAM_STR);
-        $stmt->bindParam(':computador_computador_id', $computador_computador_id, PDO::PARAM_STR);
-        $nome = $dados['nome'];
+        $stmt->bindParam(':computador_id', $computador_id, PDO::PARAM_STR);
+        $name = $dados['name'];
         $faixaetaria = $dados['faixaetaria'];
-        $computador_computador_id = $dados['computador_computador_id'];
+        $computador_id = $dados['computador_id'];
         $stmt->execute();
         header("location:jogocomp.php");
         
     }
 
     function editar($computador_id){
-        $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
+        $name = isset($_POST['name']) ? $_POST['name'] : "";
         $faixaetaria = isset($_POST['faixaetaria']) ? $_POST['faixaetaria'] : "";
-        $computador_computador_id = isset($_POST['computador_computador_id']) ? $_POST['computador_computador_id'] : "";
+        $computador_id = isset($_POST['computador_id']) ? $_POST['computador_id'] : "";
         $dados = dadosForm();
         $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('UPDATE `ativprog3`.`jogos` SET `nome` = :nome, `faixaetaria` = :faixaetaria, `computador_computador_id` = :computador_computador_id WHERE (`computador_id` = :computador_id);');
-        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $stmt = $pdo->prepare('UPDATE `jogos` SET `name` = :name, `faixaetaria` = :faixaetaria, `computador_id` = :computador_id WHERE (`computador_id` = :computador_id);');
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':faixaetaria', $faixaetaria, PDO::PARAM_STR);
-        $stmt->bindParam(':computador_computador_id', $computador_computador_id, PDO::PARAM_STR);
         $stmt->bindParam(':computador_id', $computador_id, PDO::PARAM_INT);
-        $nome = $dados['nome'];
+        $name = $dados['name'];
         $faixaetaria = $dados['faixaetaria'];
-        $computador_computador_id = $dados['computador_computador_id'];
         $computador_id = $dados['computador_id'];
         $stmt->execute();
         header("location:jogocomp.php");
@@ -79,9 +77,9 @@
         $dados = array();
         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
             $dados['computador_id'] = $linha['computador_id'];
-            $dados['nome'] = $linha['nome'];
+            $dados['name'] = $linha['name'];
             $dados['faixaetaria'] = $linha['faixaetaria'];
-            $dados['computador_computador_id'] = $linha['computador_computador_id'];
+            $dados['computador_id'] = $linha['computador_id'];
         }
         //var_dump($dados);
         return $dados;
@@ -91,9 +89,9 @@
     function dadosForm(){
         $dados = array();
         $dados['computador_id'] = $_POST['computador_id'];
-        $dados['nome'] = $_POST['nome'];
+        $dados['name'] = $_POST['name'];
         $dados['faixaetaria'] = $_POST['faixaetaria'];
-        $dados['computador_computador_id'] = $_POST['computador_computador_id'];
+        $dados['computador_id'] = $_POST['computador_id'];
         return $dados;
     }
 

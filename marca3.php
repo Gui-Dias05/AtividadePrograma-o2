@@ -40,10 +40,10 @@
 
 
 <br>
-<a id="listar" href="jogos.php"><button type="button" class="btn btn-dark btn-lg btn-block">Listar</button></a>
-<a id="novo" href="marca2.php"><button type="button" class="btn btn-dark btn-lg btn-block">Novo</button></a>
+<a id="listar" href="jogocomp.php"><button type="button" class="btn btn-dark btn-lg btn-block">Listar</button></a>
+<a id="novo" href="marca3.php"><button type="button" class="btn btn-dark btn-lg btn-block">Novo</button></a>
 <br><br>
-<form action="acao2.php" method="post">
+<form action="acao3.php" method="post">
     
     <h3>ID:</h3><input class="form-control bg-dark text-white" readonly  type="text" name="id" id="id" value="<?php if ($acao3 == "editar") echo $dados['id']; else echo 0; ?>"><br>
     <h3>Nome:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="name" id="name" value="<?php if ($acao3 == "editar") echo $dados['name']; ?>"><br>
@@ -60,9 +60,9 @@
                 ?>
                 <option  name="" value="<?php echo $linha['computador_id']; ?>" <?php if ($comando == "update" && $linha['computador_id'] == $dados['computador_id']){echo "selected";}?>><?php echo $linha['computador_id'];?></option>
             <?php } ?>
-            </select> 
+            </select>  
 
-    <input type="submit" class="btn btn-dark" name="acao2" id="acao2"  value="salvar">
+    <input type="submit" class="btn btn-dark" name="acao3" id="acao3"  value="salvar">
 
 </form>
 

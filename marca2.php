@@ -36,6 +36,7 @@ if ($acao2 == 'editar'){
 <a id="novo" href="marca2.php"><button type="button" class="btn btn-dark btn-lg btn-block">Novo</button></a>
 <br><br>
 <form action="acao2.php" method="post">
+    
     <h3>ID:</h3><input class="form-control bg-dark text-white" readonly  type="text" name="id" id="id" value="<?php if ($acao2 == "editar") echo $dados['id']; else echo 0; ?>"><br>
     <h3>Nome:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="name" id="name" value="<?php if ($acao2 == "editar") echo $dados['name']; ?>"><br>
     <h3>Faixa etária:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="faixaetaria" id="faixaetaria" value="<?php if ($acao2 == "editar") echo $dados['faixaetaria']; ?>"><br>

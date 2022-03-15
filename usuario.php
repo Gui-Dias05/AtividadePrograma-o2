@@ -12,28 +12,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title> <?php echo $title; ?> </title>
- 
+    <link href="css/css.css" rel="stylesheet">
     <script>
         function excluirRegistro(url){
             if (confirm("Confirma Exclusão?"))
                 location.href = url;
         }
     </script>
-</head>
-<body>
-<?php include "menu1.php"; ?>
-<br>
-<h2 class="text-dark">Usuário</h2>
-</br>
-<form method="post">
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" usuario_id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>Id usuário</h3><br>  
-    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" usuario_id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Nome</h3><br>
-    <input class="form-control bg-dark text-white" type="text" name="procurar" usuario_id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
-    <br>
-    <input type="submit" class="btn btn-dark"  value="Consultar">
-</form>
-<br>
-<style>
+    <style>
     table{
         text-align: center;
         font-family: 'Lucusuario_ida Sans', 'Lucusuario_ida Sans Regular', 'Lucusuario_ida Grande', 'Lucusuario_ida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -48,6 +34,21 @@
         font-family: 'Lucusuario_ida Sans', 'Lucusuario_ida Sans Regular', 'Lucusuario_ida Grande', 'Lucusuario_ida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 </style>
+</head>
+<body>
+<?php include "menu1.php"; ?>
+<br>
+<h2 class="text-dark">Usuário</h2>
+</br>
+<form method="post">
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio" name="tipo" usuario_id="tipo" value="1" <?php if ($tipo == 1) { echo "checked"; }?>>Id usuário</h3><br>  
+    <h3 class="input text-dark"><input class="form-check-input bg-dark" type="radio"  name="tipo" usuario_id="tipo" value="2" <?php if ($tipo == 2) { echo "checked"; }?>>Nome</h3><br>
+    <input class="form-control bg-dark text-white" type="text" name="procurar" usuario_id="procurar" placeholder="Digite para consultar" value="<?php echo $procurar; ?>">
+    <br>
+    <input type="submit" class="btn btn-dark"  value="Consultar">
+</form>
+<br>
+
 <table class="table table-dark table-striped">
        <tr><th>ID usuário</th>
         <th>Name</th> 

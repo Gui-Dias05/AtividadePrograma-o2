@@ -16,7 +16,7 @@ if ($acao == 'editar'){
 }
 
 if ($acao == 'editar'){
-    $usuario_id = isset($_GET['usuario_idade']) ? $_GET['usuario_idade'] : "";
+    $usuario_id = isset($_GET['idade']) ? $_GET['idade'] : "";
     if ($usuario_id > 0)
         $dados = buscarDados($usuario_id);
 }
@@ -58,7 +58,7 @@ if ($acao == 'editar'){
     <h3>usuario_id:</h3><input class="form-control bg-dark text-white" readonly  type="text" name="usuario_id" usuario_id="usuario_id" value="<?php if ($acao == "editar") echo $dados['usuario_id']; else echo 0; ?>" ><br>
     <h3>Nome:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="name" usuario_id="name" value="<?php if ($acao == "editar") echo $dados['name']; ?>"  placeholder="Inserir nome"><br>
     <h3>CPF:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="cpf" usuario_id="cpf" value="<?php if ($acao == "editar") echo $dados['cpf']; ?>"  placeholder="Inserir CPF"><br>
-    <h3>usuario_idade:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="usuario_idade" usuario_id="usuario_idade" value="<?php if ($acao == "editar") echo $dados['usuario_idade']; ?>"  placeholder="Inserir usuario_idade"><br>
+    <h3>Idade:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="idade" usuario_id="idade" value="<?php if ($acao == "editar") echo $dados['idade']; ?>"  placeholder="Inserir idade"><br>
     <h3>Tempo:</h3> <input class="form-control bg-dark text-white" required=true   type="text" name="tempo" usuario_id="tempo" value="<?php if ($acao == "editar") echo $dados['tempo']; ?>" placeholder="Inserir tempo de jogo"><br>
 
     

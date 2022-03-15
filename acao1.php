@@ -39,7 +39,7 @@
         $tipocomp = isset($_POST['tipocomp']) ? $_POST['tipocomp'] : "";
         $dados = dadosForm();
         $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('UPDATE `ativprog3`.`computador` SET `tipocomp` = :tipocomp WHERE (`computador_id` = :computador_id);');
+        $stmt = $pdo->prepare('UPDATE `computador` SET `tipocomp` = :tipocomp WHERE (`computador_id` = :computador_id);');
         $stmt->bindParam(':tipocomp', $tipocomp, PDO::PARAM_STR);
         $stmt->bindParam(':computador_id', $computador_id, PDO::PARAM_INT);
         $tipocomp = $dados['tipocomp'];

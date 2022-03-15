@@ -28,16 +28,16 @@
         $pdo = Conexao::getInstance();
         $name = isset($_POST['name']) ? $_POST['name'] : "";
         $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : "";
-        $usuario_idade = isset($_POST['usuario_idade']) ? $_POST['usuario_idade'] : "";
+        $idade = isset($_POST['idade']) ? $_POST['idade'] : "";
         $tempo = isset($_POST['tempo']) ? $_POST['tempo'] : "";
-        $stmt = $pdo->prepare('INSERT INTO usuario (name, cpf, usuario_idade, tempo) VALUES(:name, :cpf, :usuario_idade, :tempo)');
+        $stmt = $pdo->prepare('INSERT INTO usuario (name, cpf, idade, tempo) VALUES(:name, :cpf, :idade, :tempo)');
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
-        $stmt->bindParam(':usuario_idade', $usuario_idade, PDO::PARAM_STR);
+        $stmt->bindParam(':idade', $idade, PDO::PARAM_STR);
         $stmt->bindParam(':tempo', $tempo, PDO::PARAM_STR);
         $name = $dados['name'];
         $cpf = $dados['cpf'];
-        $usuario_idade = $dados['usuario_idade'];
+        $idade = $dados['idade'];
         $tempo = $dados['tempo'];
         $stmt->execute();
         header("location:usuario.php");
@@ -47,19 +47,19 @@
     function editar($usuario_id){
         $name = isset($_POST['name']) ? $_POST['name'] : "";
         $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : "";
-        $usuario_idade = isset($_POST['usuario_idade']) ? $_POST['usuario_idade'] : "";
+        $idade = isset($_POST['idade']) ? $_POST['idade'] : "";
         $tempo = isset($_POST['tempo']) ? $_POST['tempo'] : "";
         $dados = dadosForm();
         $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('UPDATE `ativprog3`.`usuario` SET `name` = :name, `cpf` = :cpf, `usuario_idade` = :usuario_idade, `tempo` = :tempo WHERE (`usuario_id` = :usuario_id);');
+        $stmt = $pdo->prepare('UPDATE `usuario` SET `name` = :name, `cpf` = :cpf, `idade` = :idade, `tempo` = :tempo WHERE (`usuario_id` = :usuario_id);');
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
-        $stmt->bindParam(':usuario_idade', $usuario_idade, PDO::PARAM_STR);
+        $stmt->bindParam(':idade', $idade, PDO::PARAM_STR);
         $stmt->bindParam(':tempo', $tempo, PDO::PARAM_STR);
         $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT);
         $name = $dados['name'];
         $cpf = $dados['cpf'];
-        $usuario_idade = $dados['usuario_idade'];
+        $idade = $dados['idade'];
         $tempo = $dados['tempo'];
         $usuario_id = $dados['usuario_id'];
         $stmt->execute();
@@ -88,7 +88,7 @@
             $dados['usuario_id'] = $linha['usuario_id'];
             $dados['name'] = $linha['name'];
             $dados['cpf'] = $linha['cpf'];
-            $dados['usuario_idade'] = $linha['usuario_idade'];
+            $dados['idade'] = $linha['idade'];
             $dados['tempo'] = $linha['tempo'];
         }
         //var_dump($dados);
@@ -101,7 +101,7 @@
         $dados['usuario_id'] = $_POST['usuario_id'];
         $dados['name'] = $_POST['name'];
         $dados['cpf'] = $_POST['cpf'];
-        $dados['usuario_idade'] = $_POST['usuario_idade'];
+        $dados['idade'] = $_POST['idade'];
         $dados['tempo'] = $_POST['tempo'];
         return $dados;
     }

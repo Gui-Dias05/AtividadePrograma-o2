@@ -47,7 +47,7 @@
         $genero = isset($_POST['genero']) ? $_POST['genero'] : "";
         $dados = dadosForm();
         $pdo = Conexao::getInstance();
-        $stmt = $pdo->prepare('UPDATE `ativprog3`.`jogos` SET `name` = :name, `faixaetaria` = :faixaetaria, `genero` = :genero WHERE (`id` = :id);');
+        $stmt = $pdo->prepare('UPDATE `jogos` SET `name` = :name, `faixaetaria` = :faixaetaria, `genero` = :genero WHERE (`id` = :id);');
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':faixaetaria', $faixaetaria, PDO::PARAM_STR);
         $stmt->bindParam(':genero', $genero, PDO::PARAM_STR);
